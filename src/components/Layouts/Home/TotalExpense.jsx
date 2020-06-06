@@ -7,10 +7,7 @@ const TotalExpense = () => {
   const { totalExpense } = expenseContext;
 
   return (
-    <CardPanel
-      className="deep-orange darken-1 white-text"
-      style={{ textAlign: 'center' }}
-    >
+    <CardPanel className="deep-orange darken-1" style={{ textAlign: 'center' }}>
       <h4>Total expense</h4>
       <h4>Rs. {totalExpense}</h4>
     </CardPanel>
