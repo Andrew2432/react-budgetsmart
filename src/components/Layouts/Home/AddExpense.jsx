@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, Fragment, useEffect } from 'react';
 import ExpenseContext from '../../../context/Expense/expenseContext';
 import {
   CardPanel,
@@ -8,16 +8,23 @@ import {
   TextInput,
   Icon,
 } from 'react-materialize';
+import BtnAddExpense from '../Buttons/BtnAddExpense';
+import BtnUpdateExpense from '../Buttons/BtnUpdateExpense';
+import BtnBack from '../Buttons/BtnBack';
 
 const AddExpense = () => {
   const expenseContext = useContext(ExpenseContext);
-  const { addExpense, mode } = expenseContext;
+  const { addExpense, mode, currentExpense } = expenseContext;
 
   const [expense, setExpense] = useState('');
   const [cost, setCost] = useState('');
 
   const handleExpense = (e) => setExpense(e.target.value);
   const handleCost = (e) => setCost(e.target.value);
+
+  useEffect(() => {
+    if (mode === 'edit') setFields();
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +35,15 @@ const AddExpense = () => {
       clearFields();
       alert('Added successfully');
     }
+  };
+
+  const handleUpdate = () => {};
+
+  const handleBack = () => {};
+
+  const setFields = () => {
+    setExpense(currentExpense.name);
+    setCost(currentExpense.cost.toString());
   };
 
   const clearFields = () => {
@@ -63,36 +79,12 @@ const AddExpense = () => {
         </Col>
       </Row>
       <Row>
-        {mode === 'add' && (
-          <Button
-            large
-            node="a"
-            style={{
-              marginLeft: '1.3rem',
-              fontSize: '1rem',
-            }}
-            className="blue darken-3"
-            onClick={handleSubmit}
-            waves="light"
-          >
-            Add Expense
-            <Icon left>add</Icon>
-          </Button>
-        )}
+        {mode === 'add' && <BtnAddExpense onClick={handleSubmit} />}
         {mode === 'edit' && (
-          <Button
-            large
-            node="a"
-            style={{
-              marginLeft: '1.3rem',
-              fontSize: '1rem',
-            }}
-            className="orange darken-2"
-            waves="light"
-          >
-            Update Expense
-            <Icon left>mode_edit</Icon>
-          </Button>
+          <Fragment>
+            <BtnUpdateExpense onClick={handleUpdate} />
+            <BtnBack onClick={handleBack} />
+          </Fragment>
         )}
       </Row>
     </CardPanel>
