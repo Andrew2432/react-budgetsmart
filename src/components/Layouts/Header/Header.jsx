@@ -11,7 +11,7 @@ const Header = () => {
       }
       centerLogo
       id="mobile-nav"
-      style={{ backgroundColor: '#9c27b0' }}
+      style={{ backgroundColor: '#ba68c8' }}
     ></Navbar>
   );
 };

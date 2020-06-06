@@ -8,6 +8,9 @@ function App() {
   return (
     <Fragment>
       <Header />
+      <Container>
+        <Home />
+      </Container>
     </Fragment>
   );
 }
