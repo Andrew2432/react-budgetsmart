@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "materialize-css": "^1.0.0-rc.2",
-    "react-materialize": "^3.9.2"
+    "react-materialize": "^3.9.2",
+    "uuid": "^8.1.0"
   }
 }

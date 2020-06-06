@@ -7,8 +7,8 @@ const TotalExpense = () => {
       className="deep-orange darken-1 white-text"
       style={{ textAlign: 'center' }}
     >
-      <h3>Total expense</h3>
-      <h3>Rs. 1000</h3>
+      <h4>Total expense</h4>
+      <h4>Rs. 1000</h4>
     </CardPanel>
   );
 };
