@@ -1,4 +1,8 @@
-import { ADD_EXPENSE, COMPUTE_TOTAL_EXPENSE } from '../types';
+import {
+  ADD_EXPENSE,
+  COMPUTE_TOTAL_EXPENSE,
+  CLEAR_ALL_EXPENSE,
+} from '../types';
 
 export default (state, action) => {
   const { type, payload } = action;
@@ -8,6 +12,15 @@ export default (state, action) => {
 
     case COMPUTE_TOTAL_EXPENSE:
       return { ...state, totalExpense: state.totalExpense + payload };
+
+    case CLEAR_ALL_EXPENSE:
+      return {
+        expenses: [],
+        totalExpense: 0,
+        currentExpense: null,
+        mode: 'add',
+      };
+
     default:
       return state;
   }

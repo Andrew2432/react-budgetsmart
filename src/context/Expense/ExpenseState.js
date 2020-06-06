@@ -42,6 +42,10 @@ const ExpenseState = (props) => {
     });
   };
 
+  const clearAllExpense = () => {
+    dispatch({ type: 'CLEAR_ALL_EXPENSE' });
+  };
+
   return (
     <ExpenseContext.Provider
       value={{
@@ -50,6 +54,7 @@ const ExpenseState = (props) => {
         totalExpense: state.totalExpense,
         mode: state.mode,
         addExpense,
+        clearAllExpense,
       }}
     >
       {props.children}

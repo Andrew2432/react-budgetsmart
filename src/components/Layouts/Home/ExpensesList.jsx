@@ -1,11 +1,18 @@
 import React, { useContext } from 'react';
-import { CardPanel, Collection } from 'react-materialize';
+import {
+  CardPanel,
+  Collection,
+  CollectionItem,
+  Row,
+  Col,
+} from 'react-materialize';
 import ExpenseItem from './ExpenseItem';
+import ConfirmModal from './ConfirmModal';
 import ExpenseContext from '../../../context/Expense/expenseContext';
 
 const ExpensesList = () => {
   const expenseContext = useContext(ExpenseContext);
-  const { expenses } = expenseContext;
+  const { expenses, clearAllExpense } = expenseContext;
 
   const createExpenseItem = (expense) => (
     <ExpenseItem {...expense} key={expense.id} />
@@ -18,9 +25,16 @@ const ExpensesList = () => {
         {expenses.length > 0 ? (
           expenses.map(createExpenseItem)
         ) : (
-          <h3>No expenses added. Enter an expense</h3>
+          <CollectionItem>No expenses added. Enter an expense</CollectionItem>
         )}
       </Collection>
+      {expenses.length > 0 && (
+        <Row>
+          <Col>
+            <ConfirmModal onClick={clearAllExpense} />
+          </Col>
+        </Row>
+      )}
     </CardPanel>
   );
 };

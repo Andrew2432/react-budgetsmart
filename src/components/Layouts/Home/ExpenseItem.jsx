@@ -7,7 +7,7 @@ const ExpenseItem = (props) => {
   return (
     <CollectionItem id={id}>
       <b>{name}</b> | <em>Rs. {cost}</em> <br />
-      <b>On: {createdAt}</b>
+      <b>{createdAt}</b>
       <a className="secondary-content" href="!#">
         <Icon className="red-text">delete</Icon>
       </a>
