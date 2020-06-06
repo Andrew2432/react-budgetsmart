@@ -1,14 +1,20 @@
 import React, { useState, useContext, Fragment, useEffect } from 'react';
 import ExpenseContext from '../../../context/Expense/expenseContext';
-import { CardPanel, Row, Col, TextInput } from 'react-materialize';
-
+import {
+  CardPanel,
+  Row,
+  Col,
+  Button,
+  TextInput,
+  Icon,
+} from 'react-materialize';
 import BtnAddExpense from '../Buttons/BtnAddExpense';
 import BtnUpdateExpense from '../Buttons/BtnUpdateExpense';
 import BtnBack from '../Buttons/BtnBack';
 
 const AddExpense = () => {
   const expenseContext = useContext(ExpenseContext);
-  const { addExpense, mode, currentExpense, updateExpense } = expenseContext;
+  const { addExpense, mode, currentExpense } = expenseContext;
 
   const [expense, setExpense] = useState('');
   const [cost, setCost] = useState('');
@@ -31,10 +37,7 @@ const AddExpense = () => {
     }
   };
 
-  const handleUpdate = () => {
-    updateExpense(expense, cost);
-    clearFields();
-  };
+  const handleUpdate = () => {};
 
   const handleBack = () => {};
 
@@ -76,9 +79,8 @@ const AddExpense = () => {
         </Col>
       </Row>
       <Row>
-        {mode === 'add' ? (
-          <BtnAddExpense onClick={handleSubmit} />
-        ) : (
+        {mode === 'add' && <BtnAddExpense onClick={handleSubmit} />}
+        {mode === 'edit' && (
           <Fragment>
             <BtnUpdateExpense onClick={handleUpdate} />
             <BtnBack onClick={handleBack} />

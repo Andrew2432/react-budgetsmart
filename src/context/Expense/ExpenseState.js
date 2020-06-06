@@ -2,13 +2,7 @@ import React, { useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import expenseReducer from './expenseReducer';
 import ExpenseContext from './expenseContext';
-import {
-  ADD_EXPENSE,
-  EDIT_EXPENSE,
-  COMPUTE_TOTAL_EXPENSE,
-  UPDATE_EXPENSE,
-  CLEAR_ALL_EXPENSE,
-} from '../types';
+import { ADD_EXPENSE, EDIT_EXPENSE, COMPUTE_TOTAL_EXPENSE } from '../types';
 
 const ExpenseState = (props) => {
   const initialState = {
@@ -17,10 +11,7 @@ const ExpenseState = (props) => {
     totalExpense: 0,
     mode: 'add',
   };
-
   const [state, dispatch] = useReducer(expenseReducer, initialState);
-
-  const { expenses, currentExpense } = state;
 
   const generateTimestamp = () =>
     new Date().toLocaleDateString('en-IN', {
@@ -44,10 +35,17 @@ const ExpenseState = (props) => {
       type: ADD_EXPENSE,
       payload: newExpense,
     });
+
+    dispatch({
+      type: COMPUTE_TOTAL_EXPENSE,
+      payload: newExpense.cost,
+    });
   };
 
   const editExpense = (id) => {
-    const reqExpense = expenses.filter((expense) => expense.id !== id);
+    const reqExpense = state.expenses.filter(
+      (expense, index) => expense.id !== id
+    );
 
     dispatch({
       type: EDIT_EXPENSE,
@@ -55,39 +53,8 @@ const ExpenseState = (props) => {
     });
   };
 
-  const updateExpense = (newExpense, newCost) => {
-    currentExpense.name = newExpense;
-    currentExpense.cost = newCost;
-    let replaceIndex;
-
-    expenses.forEach((expense, index) => {
-      if (expense.id === currentExpense.id) replaceIndex = index;
-    });
-
-    expenses.splice(replaceIndex, 1, currentExpense);
-
-    dispatch({
-      type: UPDATE_EXPENSE,
-      payload: expenses,
-    });
-
-    findTotalExpense();
-  };
-
-  const findTotalExpense = () => {
-    let total = 0;
-    console.log(expenses);
-    if (expenses.length > 0) {
-      expenses.forEach((expense) => (total += expense.cost));
-    }
-    dispatch({
-      type: COMPUTE_TOTAL_EXPENSE,
-      payload: total,
-    });
-  };
-
   const clearAllExpense = () => {
-    dispatch({ type: CLEAR_ALL_EXPENSE });
+    dispatch({ type: 'CLEAR_ALL_EXPENSE' });
   };
 
   return (
@@ -100,8 +67,6 @@ const ExpenseState = (props) => {
         addExpense,
         editExpense,
         clearAllExpense,
-        updateExpense,
-        findTotalExpense,
       }}
     >
       {props.children}
