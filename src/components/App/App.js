@@ -1,12 +1,15 @@
-import React from 'react';
-import { Container } from '@material-ui/core';
+import React, { Fragment } from 'react';
+import { Container, CssBaseline } from '@material-ui/core';
+import Header from '../Layouts/Header/Header';
 import './App.css';
 
 function App() {
   return (
-    <Container>
-      <h1>Hello</h1>
-    </Container>
+    <Fragment>
+      <CssBaseline />
+      <Header />
+      <Container></Container>
+    </Fragment>
   );
 }
 
