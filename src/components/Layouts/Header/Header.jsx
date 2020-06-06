@@ -1,23 +1,18 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Navbar } from 'react-materialize';
 
 const Header = () => {
   return (
-    <Box
-      component="header"
-      style={{
-        width: '100vw',
-        backgroundColor: '#ba68c8',
-        padding: '0.5rem',
-        textAlign: 'center',
-        fontSize: '2.1rem',
-        fontWeight: '400',
-        color: '#fff',
-      }}
-      className="header"
-    >
-      BudgetSmart
-    </Box>
+    <Navbar
+      brand={
+        <a className="brand-logo" href="/">
+          BudgetSmart
+        </a>
+      }
+      centerLogo
+      id="mobile-nav"
+      style={{ backgroundColor: '#9c27b0' }}
+    ></Navbar>
   );
 };
 

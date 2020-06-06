@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
-import { Container, CssBaseline } from '@material-ui/core';
+import { Container } from 'react-materialize';
 import Header from '../Layouts/Header/Header';
+import Home from '../Layouts/Home/Home';
 import './App.css';
 
 function App() {
   return (
     <Fragment>
-      <CssBaseline />
       <Header />
-      <Container></Container>
     </Fragment>
   );
 }
