@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-materialize';
 
-const ConfirmModal = (props) => {
+const ConfirmModal = ({ onClick, trigger, message }) => {
   return (
     <Modal
       className="black-text"
@@ -13,7 +13,7 @@ const ConfirmModal = (props) => {
           node="button"
           waves="red"
           className="red white-text"
-          onClick={props.onClick}
+          onClick={onClick}
         >
           Yes
         </Button>,
@@ -39,15 +39,17 @@ const ConfirmModal = (props) => {
         preventScrolling: true,
         startingTop: '4%',
       }}
-      trigger={<Button className="purple darken-2">Clear Expenses</Button>}
+      trigger={trigger}
     >
-      <p>Are you sure you want to delete all expenses?</p>
+      <p>{message}</p>
     </Modal>
   );
 };
 
 ConfirmModal.propTypes = {
   onClick: PropTypes.func.isRequired,
+  trigger: PropTypes.object.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default ConfirmModal;

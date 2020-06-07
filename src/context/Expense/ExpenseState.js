@@ -9,6 +9,7 @@ import {
   COMPUTE_TOTAL_EXPENSE,
   CLEAR_ALL_EXPENSE,
   SET_HOME_STATE,
+  DELETE_EXPENSE,
 } from '../types';
 
 const ExpenseState = (props) => {
@@ -66,6 +67,15 @@ const ExpenseState = (props) => {
     });
   };
 
+  const deleteExpense = (id) => {
+    dispatch({
+      type: DELETE_EXPENSE,
+      payload: id,
+    });
+
+    dispatch({ type: COMPUTE_TOTAL_EXPENSE });
+  };
+
   const clearAllExpense = () => {
     dispatch({ type: CLEAR_ALL_EXPENSE });
   };
@@ -83,6 +93,7 @@ const ExpenseState = (props) => {
         editExpense,
         clearAllExpense,
         updateExpense,
+        deleteExpense,
         setHomeState,
       }}
     >

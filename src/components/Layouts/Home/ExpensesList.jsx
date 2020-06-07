@@ -5,6 +5,7 @@ import {
   CollectionItem,
   Row,
   Col,
+  Button,
 } from 'react-materialize';
 import ExpenseItem from './ExpenseItem';
 import ConfirmModal from './ConfirmModal';
@@ -31,7 +32,13 @@ const ExpensesList = () => {
       {expenses.length > 0 && (
         <Row>
           <Col>
-            <ConfirmModal onClick={clearAllExpense} />
+            <ConfirmModal
+              onClick={clearAllExpense}
+              trigger={
+                <Button className="purple darken-2">Clear Expenses</Button>
+              }
+              message="Are you sure you want to delete all expenses?"
+            />
           </Col>
         </Row>
       )}
