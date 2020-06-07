@@ -7,7 +7,7 @@ import BtnBack from '../Buttons/BtnBack';
 
 const AddExpense = () => {
   const expenseContext = useContext(ExpenseContext);
-  const { addExpense, mode, currentExpense } = expenseContext;
+  const { addExpense, mode, currentExpense, updateExpense } = expenseContext;
 
   const [expense, setExpense] = useState('');
   const [cost, setCost] = useState('');
@@ -17,7 +17,7 @@ const AddExpense = () => {
 
   useEffect(() => {
     if (mode === 'edit') setFields();
-  });
+  }, [mode]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +30,10 @@ const AddExpense = () => {
     }
   };
 
-  const handleUpdate = () => {};
+  const handleUpdate = () => {
+    updateExpense(expense, parseInt(cost));
+    clearFields();
+  };
 
   const handleBack = () => {};
 

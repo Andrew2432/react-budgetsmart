@@ -10,7 +10,7 @@ const ExpenseItem = (props) => {
 
   const handleEdit = (e) => {
     e.preventDefault();
-    const val = e.target.parentElement.parentElement.attributes.id;
+    const val = e.target.parentElement.parentElement.attributes.id.nodeValue;
     editExpense(val);
   };
 
@@ -21,7 +21,7 @@ const ExpenseItem = (props) => {
       <a className="secondary-content" href="!#" onClick={handleEdit}>
         <Icon className="red-text">delete</Icon>
       </a>
-      <a className="secondary-content" href="!#" onClick={handleEdit}>
+      <a className="secondary-content" href="!#" onClick={handleEdit} id={id}>
         <Icon className="orange-text">mode_edit</Icon>
       </a>
     </CollectionItem>

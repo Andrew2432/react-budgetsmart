@@ -2,7 +2,13 @@ import React, { useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import expenseReducer from './expenseReducer';
 import ExpenseContext from './expenseContext';
-import { ADD_EXPENSE, EDIT_EXPENSE, COMPUTE_TOTAL_EXPENSE } from '../types';
+import {
+  ADD_EXPENSE,
+  EDIT_EXPENSE,
+  UPDATE_EXPENSE,
+  COMPUTE_TOTAL_EXPENSE,
+  CLEAR_ALL_EXPENSE,
+} from '../types';
 
 const ExpenseState = (props) => {
   const initialState = {
@@ -42,18 +48,25 @@ const ExpenseState = (props) => {
   };
 
   const editExpense = (id) => {
-    const reqExpense = state.expenses.filter(
-      (expense, index) => expense.id !== id
-    );
-
     dispatch({
       type: EDIT_EXPENSE,
-      payload: reqExpense[0],
+      payload: id,
+    });
+  };
+
+  const updateExpense = (name, cost) => {
+    dispatch({
+      type: UPDATE_EXPENSE,
+      payload: { name, cost },
+    });
+
+    dispatch({
+      type: COMPUTE_TOTAL_EXPENSE,
     });
   };
 
   const clearAllExpense = () => {
-    dispatch({ type: 'CLEAR_ALL_EXPENSE' });
+    dispatch({ type: CLEAR_ALL_EXPENSE });
   };
 
   return (
@@ -66,6 +79,7 @@ const ExpenseState = (props) => {
         addExpense,
         editExpense,
         clearAllExpense,
+        updateExpense,
       }}
     >
       {props.children}
