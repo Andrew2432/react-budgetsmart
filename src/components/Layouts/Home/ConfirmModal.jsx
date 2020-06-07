@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-materialize';
 
-const ConfirmModal = ({ onClick, trigger, message, id, targetid }) => {
+const ConfirmModal = ({ onClick, trigger, message }) => {
   return (
     <Modal
       className="black-text"
-      targetid={targetid ? targetid : null}
       actions={[
         <Button
           flat
@@ -14,7 +13,7 @@ const ConfirmModal = ({ onClick, trigger, message, id, targetid }) => {
           node="button"
           waves="red"
           className="red white-text"
-          onClick={onClick(targetid)}
+          onClick={onClick}
         >
           Yes
         </Button>,
@@ -25,7 +24,7 @@ const ConfirmModal = ({ onClick, trigger, message, id, targetid }) => {
       bottomSheet={false}
       fixedFooter={false}
       header="Confirm Delete?"
-      id={id}
+      id="Modal-0"
       open={false}
       options={{
         dismissible: true,
@@ -40,7 +39,7 @@ const ConfirmModal = ({ onClick, trigger, message, id, targetid }) => {
         preventScrolling: true,
         startingTop: '4%',
       }}
-      trigger={trigger ? trigger : null}
+      trigger={trigger}
     >
       <p>{message}</p>
     </Modal>
@@ -49,9 +48,8 @@ const ConfirmModal = ({ onClick, trigger, message, id, targetid }) => {
 
 ConfirmModal.propTypes = {
   onClick: PropTypes.func.isRequired,
-  trigger: PropTypes.object,
+  trigger: PropTypes.object.isRequired,
   message: PropTypes.string.isRequired,
-  id: PropTypes.string,
 };
 
 export default ConfirmModal;

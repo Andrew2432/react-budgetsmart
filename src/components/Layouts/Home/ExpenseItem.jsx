@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { CollectionItem, Icon } from 'react-materialize';
 import ExpenseContext from '../../../context/Expense/expenseContext';
-import ConfirmModal from './ConfirmModal';
 
 const ExpenseItem = (props) => {
   const expenseContext = useContext(ExpenseContext);
@@ -17,23 +16,16 @@ const ExpenseItem = (props) => {
     editExpense(findID(e));
   };
 
-  const handleDelete = (id) => {
-    // e.preventDefault();
-    console.log(id);
-    deleteExpense(id);
+  const handleDelete = (e) => {
+    e.preventDefault();
+    deleteExpense(findID(e));
   };
 
   return (
     <CollectionItem id={id} data-key={id}>
       <b>{name}</b> | <em>Rs. {cost}</em> <br />
       <b>{createdAt}</b>
-      <a className="secondary-content modal-trigger" href="#modal-1">
-        <ConfirmModal
-          id="modal-1"
-          message="Are you sure you want to delete?"
-          onClick={deleteExpense}
-          targetid={id}
-        />
+      <a className="secondary-content" href="!#" onClick={handleDelete}>
         <Icon className="red-text">delete</Icon>
       </a>
       <a className="secondary-content" href="!#" onClick={handleEdit}>

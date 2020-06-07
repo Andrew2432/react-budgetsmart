@@ -68,12 +68,16 @@ const ExpenseState = (props) => {
   };
 
   const deleteExpense = (id) => {
-    dispatch({
-      type: DELETE_EXPENSE,
-      payload: id,
-    });
+    const res = window.confirm('Are you sure you want to delete?');
 
-    dispatch({ type: COMPUTE_TOTAL_EXPENSE });
+    if (res) {
+      dispatch({
+        type: DELETE_EXPENSE,
+        payload: id,
+      });
+
+      dispatch({ type: COMPUTE_TOTAL_EXPENSE });
+    }
   };
 
   const clearAllExpense = () => {
