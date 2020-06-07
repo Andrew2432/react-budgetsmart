@@ -38,7 +38,6 @@ const ExpenseState = (props) => {
 
     dispatch({
       type: COMPUTE_TOTAL_EXPENSE,
-      payload: newExpense.cost,
     });
   };
 

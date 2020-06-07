@@ -15,7 +15,10 @@ export default (state, action) => {
       return { ...state, currentExpense: payload, mode: 'edit' };
 
     case COMPUTE_TOTAL_EXPENSE:
-      return { ...state, totalExpense: state.totalExpense + payload };
+      let total = 0;
+      if (state.expenses.length > 0)
+        total = state.expenses.reduce((acc, expense) => acc + expense.cost, 0);
+      return { ...state, totalExpense: total };
 
     case CLEAR_ALL_EXPENSE:
       return {
