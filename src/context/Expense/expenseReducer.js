@@ -7,17 +7,19 @@ import {
 
 export default (state, action) => {
   const { type, payload } = action;
+  const { expenses } = state;
+
   switch (type) {
     case ADD_EXPENSE:
-      return { ...state, expenses: [...state.expenses, payload] };
+      return { ...state, expenses: [...expenses, payload] };
 
     case EDIT_EXPENSE:
       return { ...state, currentExpense: payload, mode: 'edit' };
 
     case COMPUTE_TOTAL_EXPENSE:
       let total = 0;
-      if (state.expenses.length > 0)
-        total = state.expenses.reduce((acc, expense) => acc + expense.cost, 0);
+      if (expenses.length > 0)
+        total = expenses.reduce((acc, expense) => acc + expense.cost, 0);
       return { ...state, totalExpense: total };
 
     case CLEAR_ALL_EXPENSE:
