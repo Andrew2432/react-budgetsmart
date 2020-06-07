@@ -7,7 +7,13 @@ import BtnBack from '../Buttons/BtnBack';
 
 const AddExpense = () => {
   const expenseContext = useContext(ExpenseContext);
-  const { addExpense, mode, currentExpense, updateExpense } = expenseContext;
+  const {
+    addExpense,
+    mode,
+    currentExpense,
+    updateExpense,
+    setHomeState,
+  } = expenseContext;
 
   const [expense, setExpense] = useState('');
   const [cost, setCost] = useState('');
@@ -35,7 +41,10 @@ const AddExpense = () => {
     clearFields();
   };
 
-  const handleBack = () => {};
+  const handleBack = () => {
+    clearFields();
+    setHomeState();
+  };
 
   const setFields = () => {
     setExpense(currentExpense.name);

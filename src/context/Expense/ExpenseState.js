@@ -8,6 +8,7 @@ import {
   UPDATE_EXPENSE,
   COMPUTE_TOTAL_EXPENSE,
   CLEAR_ALL_EXPENSE,
+  SET_HOME_STATE,
 } from '../types';
 
 const ExpenseState = (props) => {
@@ -69,6 +70,8 @@ const ExpenseState = (props) => {
     dispatch({ type: CLEAR_ALL_EXPENSE });
   };
 
+  const setHomeState = () => dispatch({ type: SET_HOME_STATE });
+
   return (
     <ExpenseContext.Provider
       value={{
@@ -80,6 +83,7 @@ const ExpenseState = (props) => {
         editExpense,
         clearAllExpense,
         updateExpense,
+        setHomeState,
       }}
     >
       {props.children}

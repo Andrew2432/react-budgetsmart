@@ -4,6 +4,7 @@ import {
   UPDATE_EXPENSE,
   COMPUTE_TOTAL_EXPENSE,
   CLEAR_ALL_EXPENSE,
+  SET_HOME_STATE,
 } from '../types';
 
 export default (state, action) => {
@@ -55,6 +56,9 @@ export default (state, action) => {
         currentExpense: null,
         mode: 'add',
       };
+
+    case SET_HOME_STATE:
+      return { ...state, mode: 'add', currentExpense: null };
 
     default:
       return state;
