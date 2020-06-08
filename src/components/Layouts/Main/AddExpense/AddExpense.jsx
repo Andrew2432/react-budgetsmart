@@ -1,11 +1,11 @@
 import React, { useState, useContext, Fragment, useEffect } from 'react';
-import ExpenseContext from '../../../context/Expense/expenseContext';
-import ToastContext from '../../../context/Toasts/ToastContext';
+import ExpenseContext from '../../../../context/Expense/expenseContext';
+import ToastContext from '../../../../context/Toasts/ToastContext';
 
 import { CardPanel, Row, Col, TextInput } from 'react-materialize';
-import BtnAddExpense from '../Buttons/BtnAddExpense';
-import BtnUpdateExpense from '../Buttons/BtnUpdateExpense';
-import BtnBack from '../Buttons/BtnBack';
+import BtnAddExpense from '../../Buttons/BtnAddExpense';
+import BtnUpdateExpense from '../../Buttons/BtnUpdateExpense';
+import BtnBack from '../../Buttons/BtnBack';
 
 const AddExpense = () => {
   const expenseContext = useContext(ExpenseContext);

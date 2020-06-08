@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import AddExpense from '../AddExpense';
+import AddExpense from '../AddExpense/AddExpense';
 import TotalExpense from '../TotalExpense';
 import ExpensesList from '../ExpensesList';
 import CustomToast from '../../Utils/CustomToast';
