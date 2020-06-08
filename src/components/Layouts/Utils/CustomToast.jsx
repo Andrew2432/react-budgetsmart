@@ -22,7 +22,7 @@ const CustomToast = ({ message }) => {
     <div>
       <ToastContainer
         position="bottom-center"
-        autoClose={3000}
+        autoClose={1800}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

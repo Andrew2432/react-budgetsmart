@@ -25,8 +25,19 @@ const ExpensesList = () => {
   } = expenseContext;
 
   useEffect(() => {
-    if (toastMode === 'edit') setToast('Updated successfully');
-    else if (toastMode === 'delete') setToast('Deleted successfully');
+    switch (toastMode) {
+      case 'edit':
+        setToast('Updated successfully');
+        break;
+      case 'delete':
+        setToast('Deleted successfully');
+        break;
+      case 'clear':
+        setToast('Cleared successfully');
+        break;
+      default:
+        break;
+    }
     removeToastMode();
     // eslint-disable-next-line
   }, [toastMode]);

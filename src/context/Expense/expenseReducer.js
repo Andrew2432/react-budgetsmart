@@ -84,7 +84,7 @@ export default (state, action) => {
         totalExpense: 0,
         currentExpense: null,
         mode: 'add',
-        toastMode: null,
+        toastMode: 'clear',
       };
 
     case SET_HOME_STATE:
