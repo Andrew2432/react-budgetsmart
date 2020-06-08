@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { CollectionItem, Icon } from 'react-materialize';
-import ExpenseContext from '../../../context/Expense/expenseContext';
+import ExpenseContext from '../../../../context/Expense/expenseContext';
 
 const ExpenseItem = (props) => {
   const expenseContext = useContext(ExpenseContext);

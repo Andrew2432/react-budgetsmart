@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddExpense component Renders correctly 1`] = `
+<li
+  className="collection-item"
+>
+  <b />
+   | 
+  <em>
+    Rs. 
+  </em>
+   
+  <br />
+  <b />
+  <a
+    className="secondary-content"
+    href="!#"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons red-text"
+    >
+      delete
+    </i>
+  </a>
+  <a
+    className="secondary-content"
+    href="!#"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons orange-text"
+    >
+      mode_edit
+    </i>
+  </a>
+</li>
+`;
