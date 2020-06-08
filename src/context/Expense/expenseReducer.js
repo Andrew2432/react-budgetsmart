@@ -58,12 +58,15 @@ export default (state, action) => {
       };
 
     case DELETE_EXPENSE:
-      foundIndex = null;
-      const newExpenses = state.expenses.filter(
-        (expense) => expense.id !== payload
-      );
+      const list = JSON.parse(localStorage.getItem('expenses'));
 
-      return { ...state, expenses: newExpenses };
+      list.forEach((expense, index) => {
+        if (expense.id === payload) list.splice(index, 1);
+      });
+
+      localStorage.setItem('expenses', JSON.stringify(list));
+
+      return { ...state, expenses: list };
 
     case COMPUTE_TOTAL_EXPENSE:
       let total = 0;
@@ -86,9 +89,10 @@ export default (state, action) => {
 
     case FETCH_DATA_FROM_LOCAL_STORAGE:
       if (localStorage.getItem('expenses') !== null) {
+        const list = JSON.parse(localStorage.getItem('expenses'));
         return {
           ...state,
-          expenses: JSON.parse(localStorage.getItem('expenses')),
+          expenses: list,
         };
       } else {
         return { ...state, expenses: [] };
