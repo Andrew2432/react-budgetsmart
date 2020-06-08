@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+Array [
+  <nav
+    className=""
+    style={
+      Object {
+        "backgroundColor": "#ba68c8",
+      }
+    }
+  >
+    <div
+      className="nav-wrapper"
+    >
+      <a
+        className="brand-logo brand-logo center"
+        href="/"
+      >
+        BudgetSmart
+      </a>
+      <a
+        className="sidenav-trigger"
+        data-target="mobile-nav"
+        href="#!"
+      >
+        <i
+          className="material-icons"
+        >
+          menu
+        </i>
+      </a>
+      <ul
+        className="hide-on-med-and-down"
+      />
+    </div>
+  </nav>,
+  <ul
+    className="sidenav"
+    id="mobile-nav"
+  />,
+]
+`;
