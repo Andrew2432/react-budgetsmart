@@ -7,10 +7,10 @@ import {
   Col,
   Button,
 } from 'react-materialize';
-import ExpenseItem from './ExpenseItem';
-import ConfirmModal from '../Utils/ConfirmModal';
-import ExpenseContext from '../../../context/Expense/expenseContext';
-import ToastContext from '../../../context/Toasts/ToastContext';
+import ExpenseItem from '../ExpenseItem';
+import ConfirmModal from '../../Utils/ConfirmModal';
+import ExpenseContext from '../../../../context/Expense/expenseContext';
+import ToastContext from '../../../../context/Toasts/ToastContext';
 
 const ExpensesList = () => {
   const expenseContext = useContext(ExpenseContext);

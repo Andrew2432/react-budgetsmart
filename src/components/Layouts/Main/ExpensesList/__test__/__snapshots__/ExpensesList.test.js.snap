@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddExpense component Renders correctly 1`] = `
+<div
+  className="card-panel indigo accent-2"
+>
+  <h4>
+    Your Expenses
+  </h4>
+  <ul
+    className="collection black-text"
+  >
+    <li
+      className="collection-item"
+    >
+      No expenses added. Enter an expense
+    </li>
+  </ul>
+</div>
+`;
