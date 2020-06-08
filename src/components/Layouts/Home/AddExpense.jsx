@@ -13,6 +13,7 @@ const AddExpense = () => {
     currentExpense,
     updateExpense,
     setHomeState,
+    fetchDataFromStorage,
   } = expenseContext;
 
   const [expense, setExpense] = useState('');
@@ -23,7 +24,13 @@ const AddExpense = () => {
 
   useEffect(() => {
     if (mode === 'edit') setFields();
+    // eslint-disable-next-line
   }, [mode]);
+
+  useEffect(() => {
+    fetchDataFromStorage();
+    // eslint-disable-next-line
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

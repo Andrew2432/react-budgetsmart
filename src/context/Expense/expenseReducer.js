@@ -6,6 +6,7 @@ import {
   COMPUTE_TOTAL_EXPENSE,
   CLEAR_ALL_EXPENSE,
   SET_HOME_STATE,
+  FETCH_DATA_FROM_LOCAL_STORAGE,
 } from '../types';
 
 export default (state, action) => {
@@ -14,7 +15,18 @@ export default (state, action) => {
 
   switch (type) {
     case ADD_EXPENSE:
-      return { ...state, expenses: [...state.expenses, payload] };
+      if (localStorage.getItem('expenses') !== null) {
+        const list = JSON.parse(localStorage.getItem('expenses'));
+        console.log(list);
+        list.push(payload);
+        localStorage.setItem('expenses', JSON.stringify(list));
+        return { ...state, expenses: list };
+      } else {
+        const list = [payload];
+        console.log(list);
+        localStorage.setItem('expenses', JSON.stringify(list));
+        return { ...state, expenses: list };
+      }
 
     case EDIT_EXPENSE:
       let findExpense = state.expenses.filter(
@@ -69,6 +81,16 @@ export default (state, action) => {
 
     case SET_HOME_STATE:
       return { ...state, mode: 'add', currentExpense: null };
+
+    case FETCH_DATA_FROM_LOCAL_STORAGE:
+      if (localStorage.getItem('expenses') !== null) {
+        return {
+          ...state,
+          expenses: JSON.parse(localStorage.getItem('expenses')),
+        };
+      } else {
+        return { ...state, expenses: [] };
+      }
 
     default:
       return state;

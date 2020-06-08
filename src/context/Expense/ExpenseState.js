@@ -10,6 +10,7 @@ import {
   CLEAR_ALL_EXPENSE,
   SET_HOME_STATE,
   DELETE_EXPENSE,
+  FETCH_DATA_FROM_LOCAL_STORAGE,
 } from '../types';
 
 const ExpenseState = (props) => {
@@ -30,6 +31,11 @@ const ExpenseState = (props) => {
       hour: '2-digit',
       minute: '2-digit',
     });
+
+  const fetchDataFromStorage = () => {
+    dispatch({ type: FETCH_DATA_FROM_LOCAL_STORAGE });
+    dispatch({ type: COMPUTE_TOTAL_EXPENSE });
+  };
 
   const addExpense = (expense, cost) => {
     const newExpense = {
@@ -99,6 +105,7 @@ const ExpenseState = (props) => {
         updateExpense,
         deleteExpense,
         setHomeState,
+        fetchDataFromStorage,
       }}
     >
       {props.children}
