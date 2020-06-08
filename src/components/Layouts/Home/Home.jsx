@@ -9,6 +9,9 @@ const Home = () => {
   const toastContext = useContext(ToastContext);
   const { messages } = toastContext;
 
+  /**
+   * Maintain app level state for rendering toasts
+   */
   return (
     <Fragment>
       <AddExpense />

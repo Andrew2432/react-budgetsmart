@@ -24,6 +24,10 @@ const ExpensesList = () => {
     toastMode,
   } = expenseContext;
 
+  /**
+   * Set toasts based on operation.
+   * Disable toasts after displaying it
+   */
   useEffect(() => {
     switch (toastMode) {
       case 'edit':

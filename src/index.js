@@ -4,6 +4,7 @@ import App from './components/App/App';
 import ExpenseState from './context/Expense/ExpenseState';
 import ToastState from './context/Toasts/ToastState';
 
+// Pass the app level states
 ReactDOM.render(
   <React.StrictMode>
     <ExpenseState>

@@ -1,6 +1,10 @@
 import React from 'react';
 import { Navbar } from 'react-materialize';
 
+/**
+ * Render a header component
+ * Caveat: A toggle menu appears for mobile screen
+ */
 const Header = () => {
   return (
     <Navbar

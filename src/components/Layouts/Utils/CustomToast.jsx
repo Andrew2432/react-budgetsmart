@@ -8,6 +8,9 @@ const CustomToast = ({ message }) => {
   const toastContext = useContext(ToastContext);
   const { removeToast } = toastContext;
 
+  /**
+   * Display toast based on type
+   */
   const notify = () => {
     if (message.type === 'success') {
       toast.success(message.text, {
@@ -23,6 +26,10 @@ const CustomToast = ({ message }) => {
       });
     }
   };
+
+  /**
+   * Mount at every render
+   */
   useEffect(() => {
     notify();
     // eslint-disable-next-line

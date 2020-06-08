@@ -28,11 +28,17 @@ const AddExpense = () => {
   const handleExpense = (e) => setExpense(e.target.value);
   const handleCost = (e) => setCost(e.target.value);
 
+  /**
+   * Check if mode is edit in each render
+   */
   useEffect(() => {
     if (mode === 'edit') setFields();
     // eslint-disable-next-line
   }, [mode]);
 
+  /**
+   * Add expenses from local storage on each render
+   */
   useEffect(() => {
     fetchDataFromStorage();
     // eslint-disable-next-line
