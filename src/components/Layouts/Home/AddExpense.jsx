@@ -6,7 +6,6 @@ import { CardPanel, Row, Col, TextInput } from 'react-materialize';
 import BtnAddExpense from '../Buttons/BtnAddExpense';
 import BtnUpdateExpense from '../Buttons/BtnUpdateExpense';
 import BtnBack from '../Buttons/BtnBack';
-import CustomToast from '../Utils/CustomToast';
 
 const AddExpense = () => {
   const expenseContext = useContext(ExpenseContext);
@@ -21,7 +20,7 @@ const AddExpense = () => {
     fetchDataFromStorage,
   } = expenseContext;
 
-  const { setToast, messages } = toastContext;
+  const { setToast } = toastContext;
 
   const [expense, setExpense] = useState('');
   const [cost, setCost] = useState('');
@@ -106,8 +105,6 @@ const AddExpense = () => {
           </Fragment>
         )}
       </Row>
-      {messages.length > 0 &&
-        messages.map((message) => <CustomToast message={message} />)}
     </CardPanel>
   );
 };

@@ -11,6 +11,7 @@ import {
   SET_HOME_STATE,
   DELETE_EXPENSE,
   FETCH_DATA_FROM_LOCAL_STORAGE,
+  REMOVE_TOAST_MODE,
 } from '../types';
 
 const ExpenseState = (props) => {
@@ -19,6 +20,7 @@ const ExpenseState = (props) => {
     currentExpense: null,
     totalExpense: 0,
     mode: 'add',
+    toastMode: null,
   };
   const [state, dispatch] = useReducer(expenseReducer, initialState);
 
@@ -92,6 +94,8 @@ const ExpenseState = (props) => {
 
   const setHomeState = () => dispatch({ type: SET_HOME_STATE });
 
+  const removeToastMode = () => dispatch({ type: REMOVE_TOAST_MODE });
+
   return (
     <ExpenseContext.Provider
       value={{
@@ -99,6 +103,7 @@ const ExpenseState = (props) => {
         currentExpense: state.currentExpense,
         totalExpense: state.totalExpense,
         mode: state.mode,
+        toastMode: state.toastMode,
         addExpense,
         editExpense,
         clearAllExpense,
@@ -106,6 +111,7 @@ const ExpenseState = (props) => {
         deleteExpense,
         setHomeState,
         fetchDataFromStorage,
+        removeToastMode,
       }}
     >
       {props.children}

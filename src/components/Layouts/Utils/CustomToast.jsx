@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ToastContext from '../../../context/Toasts/ToastContext';
@@ -33,6 +34,10 @@ const CustomToast = ({ message }) => {
       />
     </div>
   );
+};
+
+CustomToast.propTypes = {
+  message: PropTypes.string.isRequired,
 };
 
 export default CustomToast;

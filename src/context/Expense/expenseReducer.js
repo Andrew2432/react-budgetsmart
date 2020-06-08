@@ -7,6 +7,7 @@ import {
   CLEAR_ALL_EXPENSE,
   SET_HOME_STATE,
   FETCH_DATA_FROM_LOCAL_STORAGE,
+  REMOVE_TOAST_MODE,
 } from '../types';
 
 export default (state, action) => {
@@ -16,7 +17,6 @@ export default (state, action) => {
     case ADD_EXPENSE:
       if (localStorage.getItem('expenses') !== null) {
         const list = JSON.parse(localStorage.getItem('expenses'));
-        console.log(list);
         list.push(payload);
         localStorage.setItem('expenses', JSON.stringify(list));
         return { ...state, expenses: list };
@@ -56,6 +56,7 @@ export default (state, action) => {
         expenses: updateList,
         currentExpense: null,
         mode: 'add',
+        toastMode: 'edit',
       };
 
     case DELETE_EXPENSE:
@@ -83,6 +84,7 @@ export default (state, action) => {
         totalExpense: 0,
         currentExpense: null,
         mode: 'add',
+        toastMode: null,
       };
 
     case SET_HOME_STATE:
@@ -99,6 +101,8 @@ export default (state, action) => {
         return { ...state, expenses: [] };
       }
 
+    case REMOVE_TOAST_MODE:
+      return { ...state, toastMode: null };
     default:
       return state;
   }

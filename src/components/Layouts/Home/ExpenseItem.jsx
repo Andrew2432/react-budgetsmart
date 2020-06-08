@@ -5,7 +5,9 @@ import ExpenseContext from '../../../context/Expense/expenseContext';
 
 const ExpenseItem = (props) => {
   const expenseContext = useContext(ExpenseContext);
+
   const { editExpense, deleteExpense } = expenseContext;
+
   const { id, name, cost, createdAt } = props;
 
   const findID = (e) =>

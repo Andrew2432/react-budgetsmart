@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   CardPanel,
   Collection,
@@ -10,10 +10,26 @@ import {
 import ExpenseItem from './ExpenseItem';
 import ConfirmModal from '../Utils/ConfirmModal';
 import ExpenseContext from '../../../context/Expense/expenseContext';
+import ToastContext from '../../../context/Toasts/ToastContext';
 
 const ExpensesList = () => {
   const expenseContext = useContext(ExpenseContext);
-  const { expenses, clearAllExpense } = expenseContext;
+  const toastContext = useContext(ToastContext);
+
+  const { setToast } = toastContext;
+  const {
+    expenses,
+    clearAllExpense,
+    removeToastMode,
+    toastMode,
+  } = expenseContext;
+
+  useEffect(() => {
+    if (toastMode === 'edit') setToast('Updated successfully');
+    else if (toastMode === 'delete') setToast('Deleted successfully');
+    removeToastMode();
+    // eslint-disable-next-line
+  }, [toastMode]);
 
   const createExpenseItem = (expense) => (
     <ExpenseItem {...expense} key={expense.id} />
