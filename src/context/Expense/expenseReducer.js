@@ -72,6 +72,8 @@ export default (state, action) => {
       return { ...state, totalExpense: total };
 
     case CLEAR_ALL_EXPENSE:
+      if (localStorage.getItem('expenses') !== null)
+        localStorage.removeItem('expenses');
       return {
         expenses: [],
         totalExpense: 0,
