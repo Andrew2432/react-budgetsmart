@@ -10,10 +10,17 @@ const ToastState = (props) => {
 
   const [state, dispatch] = useReducer(toastReducer, initialState);
 
+  /**
+   * Add a toast to state
+   * @param {object} toast The toast object
+   */
   const setToast = (toast) => {
     dispatch({ type: SET_TOAST, payload: toast });
   };
 
+  /**
+   * Remove toasts from state
+   */
   const removeToast = () => {
     dispatch({ type: REMOVE_TOAST });
   };
