@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import ExpenseContext from '../../../context/Expense/expenseContext';
+import ExpenseContext from '../../../../context/Expense/expenseContext';
 import { CardPanel } from 'react-materialize';
 
 const TotalExpense = () => {

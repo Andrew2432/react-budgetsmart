@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddExpense component Renders correctly 1`] = `
+<div
+  className="card-panel deep-orange darken-1"
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  <h4>
+    Total expense
+  </h4>
+  <h4>
+    Rs. 
+  </h4>
+</div>
+`;
