@@ -68,7 +68,7 @@ export default (state, action) => {
 
       localStorage.setItem('expenses', JSON.stringify(list));
 
-      return { ...state, expenses: list };
+      return { ...state, expenses: list, toastMode: 'delete' };
 
     case COMPUTE_TOTAL_EXPENSE:
       let total = 0;
