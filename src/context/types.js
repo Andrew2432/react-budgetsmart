@@ -1,3 +1,4 @@
+// Expenses types
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 export const UPDATE_EXPENSE = 'UPDATE_EXPENSE';
@@ -7,3 +8,7 @@ export const COMPUTE_TOTAL_EXPENSE = 'COMPUTE_TOTAL_EXPENSE';
 export const CLEAR_ALL_EXPENSE = 'CLEAR_ALL_EXPENSE';
 export const SET_HOME_STATE = 'SET_HOME_STATE';
 export const FETCH_DATA_FROM_LOCAL_STORAGE = 'FETCH_DATA_FROM_LOCAL_STORAGE';
+
+// Toast types
+export const SET_TOAST = 'SET_TOAST';
+export const REMOVE_TOAST = 'REMOVE_TOAST';

@@ -1,12 +1,17 @@
 import React, { useState, useContext, Fragment, useEffect } from 'react';
 import ExpenseContext from '../../../context/Expense/expenseContext';
+import ToastContext from '../../../context/Toasts/ToastContext';
+
 import { CardPanel, Row, Col, TextInput } from 'react-materialize';
 import BtnAddExpense from '../Buttons/BtnAddExpense';
 import BtnUpdateExpense from '../Buttons/BtnUpdateExpense';
 import BtnBack from '../Buttons/BtnBack';
+import CustomToast from '../Utils/CustomToast';
 
 const AddExpense = () => {
   const expenseContext = useContext(ExpenseContext);
+  const toastContext = useContext(ToastContext);
+
   const {
     addExpense,
     mode,
@@ -15,6 +20,8 @@ const AddExpense = () => {
     setHomeState,
     fetchDataFromStorage,
   } = expenseContext;
+
+  const { setToast, messages } = toastContext;
 
   const [expense, setExpense] = useState('');
   const [cost, setCost] = useState('');
@@ -35,11 +42,11 @@ const AddExpense = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (expense.trim() === '' || !parseInt(cost)) {
-      alert('Please enter correct expense.');
+      setToast('Please enter correct expense.');
     } else {
       addExpense(expense, parseInt(cost));
       clearFields();
-      alert('Added successfully');
+      setToast('Added successfully');
     }
   };
 
@@ -99,6 +106,8 @@ const AddExpense = () => {
           </Fragment>
         )}
       </Row>
+      {messages.length > 0 &&
+        messages.map((message) => <CustomToast message={message} />)}
     </CardPanel>
   );
 };
