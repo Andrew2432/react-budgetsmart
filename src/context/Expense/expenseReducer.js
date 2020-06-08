@@ -11,7 +11,6 @@ import {
 
 export default (state, action) => {
   const { type, payload } = action;
-  let foundIndex;
 
   switch (type) {
     case ADD_EXPENSE:
@@ -40,19 +39,21 @@ export default (state, action) => {
       };
 
     case UPDATE_EXPENSE:
-      foundIndex = null;
       state.currentExpense.name = payload.name;
       state.currentExpense.cost = payload.cost;
 
-      state.expenses.forEach((expense, index) => {
-        if (expense.id === state.currentExpense.id) foundIndex = index;
+      const updateList = JSON.parse(localStorage.getItem('expenses'));
+
+      updateList.forEach((expense, index) => {
+        if (expense.id === state.currentExpense.id)
+          updateList.splice(index, 1, state.currentExpense);
       });
 
-      state.expenses.splice(foundIndex, 1, state.currentExpense);
+      localStorage.setItem('expenses', JSON.stringify(updateList));
 
       return {
         ...state,
-        expenses: state.expenses,
+        expenses: updateList,
         currentExpense: null,
         mode: 'add',
       };

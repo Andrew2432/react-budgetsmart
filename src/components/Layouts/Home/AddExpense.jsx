@@ -35,7 +35,7 @@ const AddExpense = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (expense.trim() === '' || !parseInt(cost)) {
-      alert('Please enter an expense');
+      alert('Please enter correct expense.');
     } else {
       addExpense(expense, parseInt(cost));
       clearFields();
