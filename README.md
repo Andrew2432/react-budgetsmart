@@ -1,5 +1,6 @@
 ## React BudgetSmart
 Track your expenses in a smart way.
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cb123f26-9a3b-4898-bb1d-85309b7fa5a9/deploy-status)](https://app.netlify.com/sites/react-budgetsmart/deploys)
 ![License MIT](https://img.shields.io/github/license/Andrew2432/react-budgetsmart)
 
