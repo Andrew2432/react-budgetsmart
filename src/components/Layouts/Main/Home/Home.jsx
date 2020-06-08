@@ -1,9 +1,9 @@
 import React, { Fragment, useContext } from 'react';
-import AddExpense from './AddExpense';
-import TotalExpense from './TotalExpense';
-import ExpensesList from './ExpensesList';
-import CustomToast from '../Utils/CustomToast';
-import ToastContext from '../../../context/Toasts/ToastContext';
+import AddExpense from '../AddExpense';
+import TotalExpense from '../TotalExpense';
+import ExpensesList from '../ExpensesList';
+import CustomToast from '../../Utils/CustomToast';
+import ToastContext from '../../../../context/Toasts/ToastContext';
 
 const Home = () => {
   const toastContext = useContext(ToastContext);

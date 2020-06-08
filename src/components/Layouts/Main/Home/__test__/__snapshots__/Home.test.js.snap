@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component Renders correctly 1`] = `
+Array [
+  <div
+    className="card-panel deep-purple white-text"
+  >
+    <h4>
+      Add A New Expense
+    </h4>
+    <div
+      className="row"
+    >
+      <div
+        className="col s8 m8 l8"
+      >
+        <div
+          className="input-field col s12 m12 l12"
+        >
+          <input
+            className=""
+            id="expense"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <label
+            className=""
+            htmlFor="expense"
+          >
+            Expense
+          </label>
+        </div>
+      </div>
+      <div
+        className="col s4 m4 l4"
+      >
+        <div
+          className="input-field col s12 m12 l12"
+        >
+          <input
+            className=""
+            id="cost"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <label
+            className=""
+            htmlFor="cost"
+          >
+            Cost
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    />
+  </div>,
+  <div
+    className="card-panel deep-orange darken-1"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <h4>
+      Total expense
+    </h4>
+    <h4>
+      Rs. 
+    </h4>
+  </div>,
+  <div
+    className="card-panel indigo accent-2"
+  >
+    <h4>
+      Your Expenses
+    </h4>
+    <ul
+      className="collection black-text"
+    >
+      <li
+        className="collection-item"
+      >
+        No expenses added. Enter an expense
+      </li>
+    </ul>
+  </div>,
+]
+`;
