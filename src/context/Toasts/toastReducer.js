@@ -10,6 +10,7 @@ export default (state, action) => {
     case REMOVE_TOAST:
       if (state.messages.pop() === undefined) return { messages: [] };
       else return { messages: state.messages.splice(-1, 1) };
+
     default:
       return state;
   }

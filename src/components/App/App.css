@@ -48,31 +48,9 @@ body {
   font-size: 1.2rem !important;
   height: 10rem;
 }
-#toast-container {
-  min-width: 10%;
-  top: 10%;
-  right: 50%;
-  transform: translateX(50%) translateY(5%);
-}
-@media only screen and (min-width: 601px) and (max-width: 1260px) {
-  .toast {
-    width: 100%;
-    border-radius: 0;
-  }
-}
-@media only screen and (min-width: 1261px) {
-  .toast {
-    width: 100%;
-    border-radius: 0;
-  }
-}
-@media only screen and (min-width: 601px) and (max-width: 1260px) {
-  #toast-container {
-    transform: translateX(50%) translateY(10%);
-  }
-}
-@media only screen and (min-width: 1261px) {
-  #toast-container {
-    transform: translateX(50%) translateY(90%);
-  }
+
+.Toastify__toast,
+.Toastify__toast--success,
+.Toastify__toast--error {
+  text-align: center;
 }

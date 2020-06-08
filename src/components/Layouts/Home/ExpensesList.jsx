@@ -27,13 +27,13 @@ const ExpensesList = () => {
   useEffect(() => {
     switch (toastMode) {
       case 'edit':
-        setToast('Updated successfully');
+        setToast({ type: 'success', text: 'Updated successfully' });
         break;
       case 'delete':
-        setToast('Deleted successfully');
+        setToast({ type: 'success', text: 'Deleted successfully' });
         break;
       case 'clear':
-        setToast('Cleared successfully');
+        setToast({ type: 'success', text: 'Cleared successfully' });
         break;
       default:
         break;
@@ -47,7 +47,7 @@ const ExpensesList = () => {
   );
 
   return (
-    <CardPanel className="green darken-1">
+    <CardPanel className="indigo accent-2">
       <h4>Your Expenses</h4>
       <Collection className="black-text">
         {expenses.length > 0 ? (

@@ -11,7 +11,7 @@ const BtnAddExpense = ({ onClick }) => {
         marginLeft: '1.3rem',
         fontSize: '1rem',
       }}
-      className="blue darken-3"
+      className="white black-text"
       onClick={onClick}
       waves="light"
     >

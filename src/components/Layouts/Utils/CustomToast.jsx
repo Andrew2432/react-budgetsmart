@@ -8,11 +8,21 @@ const CustomToast = ({ message }) => {
   const toastContext = useContext(ToastContext);
   const { removeToast } = toastContext;
 
-  const notify = () =>
-    toast(message, {
-      onClose: () => removeToast(),
-    });
-
+  const notify = () => {
+    if (message.type === 'success') {
+      toast.success(message.text, {
+        onClose: () => removeToast(),
+      });
+    } else if (message.type === 'error') {
+      toast.error(message.text, {
+        onClose: () => removeToast(),
+      });
+    } else {
+      toast(message.text, {
+        onClose: () => removeToast(),
+      });
+    }
+  };
   useEffect(() => {
     notify();
     // eslint-disable-next-line
@@ -31,6 +41,7 @@ const CustomToast = ({ message }) => {
         draggable
         pauseOnHover={false}
         limit={3}
+        closeButton={false}
       />
     </div>
   );

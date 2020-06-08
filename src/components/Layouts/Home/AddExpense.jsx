@@ -41,11 +41,11 @@ const AddExpense = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (expense.trim() === '' || !parseInt(cost)) {
-      setToast('Please enter correct expense.');
+      setToast({ type: 'error', text: 'Please enter correct expense.' });
     } else {
       addExpense(expense, parseInt(cost));
       clearFields();
-      setToast('Added successfully');
+      setToast({ type: 'success', text: 'Added successfully' });
     }
   };
 
