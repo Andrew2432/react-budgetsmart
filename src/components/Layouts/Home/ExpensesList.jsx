@@ -8,7 +8,7 @@ import {
   Button,
 } from 'react-materialize';
 import ExpenseItem from './ExpenseItem';
-import ConfirmModal from './ConfirmModal';
+import ConfirmModal from '../Utils/ConfirmModal';
 import ExpenseContext from '../../../context/Expense/expenseContext';
 
 const ExpensesList = () => {
