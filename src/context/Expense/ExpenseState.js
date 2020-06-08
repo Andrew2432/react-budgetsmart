@@ -24,6 +24,9 @@ const ExpenseState = (props) => {
   };
   const [state, dispatch] = useReducer(expenseReducer, initialState);
 
+  /**
+   * Generate a DateTime string
+   */
   const generateTimestamp = () =>
     new Date().toLocaleDateString('en-IN', {
       weekday: 'short',
@@ -34,11 +37,20 @@ const ExpenseState = (props) => {
       minute: '2-digit',
     });
 
+  /**
+   * Get data from local storage.
+   * Triggered on every render.
+   */
   const fetchDataFromStorage = () => {
     dispatch({ type: FETCH_DATA_FROM_LOCAL_STORAGE });
     dispatch({ type: COMPUTE_TOTAL_EXPENSE });
   };
 
+  /**
+   * Generate and add an expense
+   * @param {string} expense The expense name
+   * @param {number} cost The expense cost
+   */
   const addExpense = (expense, cost) => {
     const newExpense = {
       id: uuidv4(),
@@ -57,6 +69,10 @@ const ExpenseState = (props) => {
     });
   };
 
+  /**
+   * Set mode to edit.
+   * @param {string} id The id of the expense to be updated
+   */
   const editExpense = (id) => {
     dispatch({
       type: EDIT_EXPENSE,
@@ -64,6 +80,11 @@ const ExpenseState = (props) => {
     });
   };
 
+  /**
+   * Update the current expense
+   * @param {string} name The new expense name
+   * @param {cost} cost The new expense cost
+   */
   const updateExpense = (name, cost) => {
     dispatch({
       type: UPDATE_EXPENSE,
@@ -75,6 +96,10 @@ const ExpenseState = (props) => {
     });
   };
 
+  /**
+   * Delete the current expense
+   * @param {*} id The id of expense to be deleted
+   */
   const deleteExpense = (id) => {
     const res = window.confirm('Are you sure you want to delete?');
 
@@ -88,12 +113,22 @@ const ExpenseState = (props) => {
     }
   };
 
+  /**
+   * Clear all expenses from local storage.
+   * Reset app state.
+   */
   const clearAllExpense = () => {
     dispatch({ type: CLEAR_ALL_EXPENSE });
   };
 
+  /**
+   * Set mode to home
+   */
   const setHomeState = () => dispatch({ type: SET_HOME_STATE });
 
+  /**
+   * Disable toast mode
+   */
   const removeToastMode = () => dispatch({ type: REMOVE_TOAST_MODE });
 
   return (
